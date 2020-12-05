@@ -341,7 +341,7 @@ public class AppConfig implements AppProperties {
         m_propsconfig.setProperty("paper.standard.height", "698");
         m_propsconfig.setProperty("paper.standard.mediasizename", "A4");
 
-        m_propsconfig.setProperty("tkt.header1", "uniCenta oPOS");
+        m_propsconfig.setProperty("tkt.header1", "Softeria POS");
         m_propsconfig.setProperty("tkt.header2", "Touch Friendly Point Of Sale");
         m_propsconfig.setProperty("tkt.header3", "Copyright (c) 2009-2018 uniCenta");
         m_propsconfig.setProperty("tkt.header4", "Change header text in Configuration");                
