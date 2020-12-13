@@ -26,36 +26,36 @@ import com.openbravo.basic.BasicException;
  * @author JG uniCenta
  */
 public class JEditorPassword extends JEditorText {
-    
+
     private static final char ECHO_CHAR = '*';
-    
+
     /** Creates a new instance of JEditorPassword */
     public JEditorPassword() {
         super();
     }
-    
+
     /**
      *
      * @return
      */
     protected final int getMode() {
-        return EditorKeys.MODE_STRING;
+        return EditorKeys.MODE_INTEGER_POSITIVE;
     }
-        
+
     /**
      *
      * @return
      */
     protected int getStartMode() {
-        return MODE_Abc1;
+        return MODE_123;
     }
-    
+
     /**
      *
      * @return
      */
     protected String getTextEdit() {
-        
+
         StringBuilder s = new StringBuilder();
         s.append("<html>");
         s.append(getEcho(m_svalue));
@@ -66,18 +66,18 @@ public class JEditorPassword extends JEditorText {
         }
         s.append("<font color=\"#a0a0a0\">_</font>");
 
-        return s.toString(); 
+        return s.toString();
     }
-    
+
     /**
      *
      * @return
      */
     public final String getPassword() {
-        
+
         // como clave nunca devolvemos null
         String sPassword = getText();
-        return sPassword == null ? "" : sPassword;     
+        return sPassword == null ? "" : sPassword;
     }
 
     /**
@@ -87,10 +87,10 @@ public class JEditorPassword extends JEditorText {
      */
     protected String getTextFormat() throws BasicException {
         return "<html>" + getEcho(m_svalue);
-    }    
-    
+    }
+
     private String getEcho(String sValue) {
-        
+
         if (sValue == null) {
             return "";
         } else {

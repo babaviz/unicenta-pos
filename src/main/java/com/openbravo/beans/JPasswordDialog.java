@@ -23,51 +23,51 @@ import java.awt.*;
 import javax.swing.*;
 
 public class JPasswordDialog extends javax.swing.JDialog {
-    
+
     private static LocaleResources m_resources;
 
     private String m_sPassword;
-        
+
     /** Creates new form JPasswordDialog
      * @param parent
      * @param modal */
     public JPasswordDialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);            
+        super(parent, modal);
         init();
     }
     /** Creates new form JPasswordDialog
      * @param parent
      * @param modal */
     public JPasswordDialog(java.awt.Dialog parent, boolean modal) {
-        super(parent, modal);            
+        super(parent, modal);
         init();
-    }    
-    
+    }
+
     private void init() {
-        
+
         if (m_resources == null) {
             m_resources = new LocaleResources();
             m_resources.addBundleName("beans_messages");
         }
-        
-        initComponents();        
-        getRootPane().setDefaultButton(jcmdOK);   
-        
+
+        initComponents();
+        getRootPane().setDefaultButton(jcmdOK);
+
         m_jpassword.addEditorKeys(m_jKeys);
         m_jpassword.reset();
         m_jpassword.activate();
-        
+
         m_jPanelTitle.setBorder(RoundedBorder.createGradientBorder());
 
         m_sPassword = null;
     }
-    
+
     private void setTitle(String title, String message, Icon icon) {
         setTitle(title);
         m_lblMessage.setText(message);
         m_lblMessage.setIcon(icon);
     }
-    
+
     private static Window getWindow(Component parent) {
         if (parent == null) {
             return new JFrame();
@@ -108,16 +108,16 @@ public class JPasswordDialog extends javax.swing.JDialog {
      * @return
      */
     public static String showEditPassword(Component parent, String title, String message, Icon icon) {
-        
-        Window window = getWindow(parent);      
-        
+
+        Window window = getWindow(parent);
+
         JPasswordDialog myMsg;
-        if (window instanceof Frame) { 
+        if (window instanceof Frame) {
             myMsg = new JPasswordDialog((Frame) window, true);
         } else {
             myMsg = new JPasswordDialog((Dialog) window, true);
         }
-        
+
         myMsg.setTitle(title, message, icon);
         myMsg.setVisible(true);
         return myMsg.m_sPassword;
@@ -221,34 +221,34 @@ public class JPasswordDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jNumberKeys21KeyPerformed(com.openbravo.beans.JNumberEvent evt) {//GEN-FIRST:event_jNumberKeys21KeyPerformed
- 
+
     }//GEN-LAST:event_jNumberKeys21KeyPerformed
 
     private void jcmdOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcmdOKActionPerformed
-          
-        m_sPassword = m_jpassword.getPassword(); 
+
+        m_sPassword = m_jpassword.getPassword();
         setVisible(false);
-        dispose();     
-        
+        dispose();
+
     }//GEN-LAST:event_jcmdOKActionPerformed
 
     private void jcmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcmdCancelActionPerformed
 
         setVisible(false);
-        dispose();    
-        
+        dispose();
+
     }//GEN-LAST:event_jcmdCancelActionPerformed
 
     private void closeWindow(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_closeWindow
 
         setVisible(false);
         dispose();
-        
+
     }//GEN-LAST:event_closeWindow
 
     private void m_jKeysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_jKeysActionPerformed
     }//GEN-LAST:event_m_jKeysActionPerformed
-       
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -262,5 +262,5 @@ public class JPasswordDialog extends javax.swing.JDialog {
     private com.openbravo.editor.JEditorPassword m_jpassword;
     private javax.swing.JLabel m_lblMessage;
     // End of variables declaration//GEN-END:variables
-    
+
 }

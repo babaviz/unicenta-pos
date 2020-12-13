@@ -1026,7 +1026,6 @@ public class JRootApp extends JPanel implements AppView, DeviceMonitorEventListe
             "Copyright \u00A9 2018-2020 Softeria Tech Ltd <br>" +"</center>");
         jLabel1.setAlignmentX(0.5F);
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel1.setMaximumSize(new java.awt.Dimension(800, 1024));
         jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jPanel4.add(jLabel1);
         jPanel4.add(filler2);
