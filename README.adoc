@@ -1,0 +1,138 @@
+// Global settings
+:ascii-ids:
+:encoding: UTF-8
+:lang: pt_PT
+:icons: font
+:toc:
+:toc-placement!:
+:toclevels: 3
+:numbered:
+:stem:
+
+ifdef::env-github[]
+:imagesdir: https://raw.githubusercontent.com/poolborges/unicenta-pos/master/docs/images/
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+[[doc]]
+= krPOS - Kriol Point Of Sales
+:author: Copyright (c) 2020-2020 Paulo Borges.
+:revnumber: krpos-0.0.1-snapshot
+:revdate: {last-update-label} {docdatetime}
+:version-label!:
+
+image:https://travis-ci.org/poolborges/unicenta-pos.svg?branch=master["Build Status", link="https://travis-ci.org/poolborges/unicenta-pos"]
+image:https://codecov.io/github/poolborges/unicenta-pos/coverage.svg["Code Coverage", link="https://codecov.io/gh/poolborges/unicenta-pos"]
+image:https://img.shields.io/badge/license-GPL%202.0-brightgreen.svg?style=flat["License", link="http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"]
+
+== About
+
+krPOS is Point Of Sales for "Kriol" Markert
+
+NOTE: WILL NOT follow future version of Unicenta oPOS
+
+=== History of krPOS
+
+* krPOS is a fork of UnicentaOPOS 4.5 (2019-06-30) 
+* UnicentaOPOS is a fork of OpenBravo POS
+* Openbravo has acquired Librepos (previously named Tina POS) 
+** Adrian Romero was founder and main developer for Tina POS
+
+* License: GPL version 3
+
+== Screenshots 
+
+image::krpos-screenshot.gif[]
+
+
+== Future of this project
+
+
+=== Configuration 
+
+* Only database properties will be available from file, other properties should be saved on database
+* database.1.url, database.1.username, database.1.password
+
+=== Resource 
+
+* Should not be stored on database anymore, but provided on specific jar and available on classpath
+** on OSGI those resource can be easily updated as fragment of bundle kiolos-pos-resource
+
+
+=== Database Migration 
+
+Migration tools
+
+* Liquidbase (I have Experience)
+* Obevo https://github.com/goldmansachs/obevo (No Experience)
+
+
+=== Service Provider Interface (SPI)
+
+About Java SPI available since Java 1.5 (eg: Used in JDBC driver loading)
+
+* META-INF/services
+* https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html
+* https://en.wikipedia.org/wiki/Service_provider_interface
+
+.Example of possible SPI 
+|====
+|ResourceLoader, ResourceProvider resource:file:// resource:db:// resource:classpath://
+|PaymentGatewayProvider
+|====
+
+
+=== EventSystem & ScriptEngine
+
+
+Separate event publisher, event handling and script execution to distint component
+
+
+* EventPublisher
+* EventHandler
+* ScriptRunnerEventHandler
+* AppContext 
+** Has some Objects Generic/Global always available such: DeviceInfo (Where POS is running)
+** Has specific Context (
+
+
+=== Modularity
+
+* Modularity 
+** OSGI 7 (I have experience) core, compendium, ...
+** Netbeans Platform (I have No Experience, great UI component, but must be maven/gradle)
+** Eclipse Platform (I little experience, great UI component, but must be maven/gradle)
+* ScriptEngine: 
+** Kotlin(kts)
+** groovy (but may not included, just for testing/evaluation)
+
+Modularity of code base (impl should provide default implementation)
+
+* krospos-core-api
+* krospos-core-impl 
+* krospos-gui-api
+* krospos-gui-core
+* krospos-data-api
+* krospos-data-impl
+
+==== OSGI 
+
+* Fragment for static resource customization
+* capabilities and requirement
+* Declarative Service (Dependency Injection)
+* ConfigAdmin
+* Custom Annotation
+* Apache Karaf (Apache Felix)
+* TornadoFX (OSGI and JavaFX)
+* ...
+
+== Docker 
+
+.Run MySQL database for Developer Env 
+----
+ docker run --name unicenta -p 3306:3306 -d -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=unicenta -e MYSQL_USER=unicenta -e MYSQL_PASSWORD=unicenta mysql:5.6
+----
