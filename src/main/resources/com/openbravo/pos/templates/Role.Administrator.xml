@@ -65,7 +65,7 @@
 
 <!-- Standard button scripts -->
     <class name="button.opendrawer"/>
-    <class name="button.posapps"/>
+<!--    <class name="button.posapps"/>-->
     <class name="button.print"/>
     <class name="button.Totaldiscount"/>
 

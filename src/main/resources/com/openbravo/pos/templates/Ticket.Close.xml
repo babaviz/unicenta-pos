@@ -40,9 +40,9 @@
         }
         }
 
-        PosApps posApps = new PosApps();
+        // PosApps posApps = new PosApps();
 
-        posApps.init(ticket,dbURL,dbUser,dbPassword,rootWindow,"Email");
+        // posApps.init(ticket,dbURL,dbUser,dbPassword,rootWindow,"Email");
 
 
 

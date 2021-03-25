@@ -161,6 +161,8 @@ public class JPanelButtons extends javax.swing.JPanel {
                     JButton btn = new JButtonFunc(attributes.getValue("key"), 
                             attributes.getValue("image"), 
                             title);
+                    
+                    btn.setToolTipText(attributes.getValue("tip"));
                     // The template resource or the code resource
                     final String template = attributes.getValue("template");
                     if (template == null) {

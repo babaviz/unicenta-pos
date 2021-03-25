@@ -1298,7 +1298,8 @@ System.out.println("PanelContainer : Focus Lost");
             } else if ((cTrans == '0') && (m_iNumberStatus == NUMBER_INPUTZERO)) {
                 m_jPrice.setText(Character.toString('0'));
  
-            } else if ((cTrans == '1' || cTrans == '2' || cTrans == '3' 
+            }
+            else if ((cTrans == '1' || cTrans == '2' || cTrans == '3'
                     || cTrans == '4' || cTrans == '5' || cTrans == '6' 
                     || cTrans == '7' || cTrans == '8' || cTrans == '9') 
                     && (m_iNumberStatus == NUMBER_INPUTZERO)) {
@@ -1312,7 +1313,8 @@ System.out.println("PanelContainer : Focus Lost");
                 m_iNumberStatus = NUMBER_INPUTINT;
                 m_iNumberStatusInput = NUMBERVALID;
 
-            } else if ((cTrans == '0' || cTrans == '1' || cTrans == '2' 
+            }
+            else if ((cTrans == '0' || cTrans == '1' || cTrans == '2'
                     || cTrans == '3' || cTrans == '4' || cTrans == '5' 
                     || cTrans == '6' || cTrans == '7' || cTrans == '8' 
                     || cTrans == '9') 
@@ -1702,7 +1704,7 @@ System.out.println("PanelContainer : Focus Lost");
                                     ((JRootApp)m_App).closeAppView();   
                                 }    
                             }                   
-                        };                       
+                        }
                     } else {
                         refreshTicket();
                     }

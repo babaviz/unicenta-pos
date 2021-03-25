@@ -49,7 +49,7 @@
 	<button key="button.opendrawer" image="cashdrawer" template="Printer.OpenDrawer"/>
 
 	<!-- Open posapps settings / configuration screen (Default=ENABLED) -->
-	<button key="button.posapps" image="img.posapps" code="script.posapps" />
+<!--	<button key="button.posapps" image="img.posapps" code="script.posapps" />-->
 
 	<!-- SET Virtual Keyboard (Default=ENABLED) -->
 	<button key="button.keyboard" image="keyboard_48" code="script.Keyboard"/>
