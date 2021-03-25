@@ -49,6 +49,7 @@ public class JPanelTicketSales extends JPanelTicket {
     @Override
     public void init(AppView app) {
         super.init(app);
+        if(!true)//if restaurant/touch
         m_ticketlines.addListSelectionListener(new CatalogSelectionListener());
     }
     
@@ -86,6 +87,7 @@ public class JPanelTicketSales extends JPanelTicket {
      */
     @Override
     protected void resetSouthComponent() {
+        if(!true)//if it's restaurant/touch
         m_cat.showCatalogPanel(null);
     }
     
@@ -105,6 +107,7 @@ public class JPanelTicketSales extends JPanelTicket {
     @Override
     public void activate() throws BasicException {      
         super.activate();
+        if(!true)//if it's restaurant/touch
         m_cat.loadCatalog();
     }      
     

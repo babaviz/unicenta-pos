@@ -241,6 +241,8 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         m_ticketlines = new JTicketLines(dlSystem.getResourceAsXML("Ticket.Line"));
         m_jPanelCentral.add(m_ticketlines, java.awt.BorderLayout.CENTER);
         m_TTP = new TicketParser(m_App.getDeviceTicket(), dlSystem);
+
+        if(!true)//if it's restaurant/touch
         catcontainer.add(getSouthComponent(), BorderLayout.CENTER);
         
         senttax = dlSales.getTaxList();
@@ -2574,20 +2576,21 @@ System.out.println("PanelContainer : Focus Lost");
         });
         jPanel2.add(jEditAttributes);
 
-        jCheckStock.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jCheckStock.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jCheckStock.setForeground(new java.awt.Color(76, 197, 237));
         jCheckStock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/info.png"))); // NOI18N
+        jCheckStock.setText("Stock Check");
         jCheckStock.setToolTipText(bundle.getString("tooltip.salecheckstock")); // NOI18N
         jCheckStock.setFocusPainted(false);
         jCheckStock.setFocusable(false);
         jCheckStock.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jCheckStock.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jCheckStock.setIconTextGap(0);
         jCheckStock.setMargin(new java.awt.Insets(8, 4, 8, 4));
-        jCheckStock.setMaximumSize(new java.awt.Dimension(42, 36));
+        jCheckStock.setMaximumSize(new java.awt.Dimension(100, 1000));
         jCheckStock.setMinimumSize(new java.awt.Dimension(42, 36));
-        jCheckStock.setPreferredSize(new java.awt.Dimension(80, 45));
+        jCheckStock.setPreferredSize(new java.awt.Dimension(42, 200));
         jCheckStock.setRequestFocusEnabled(false);
-        jCheckStock.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         jCheckStock.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jCheckStockMouseClicked(evt);
@@ -2608,6 +2611,8 @@ System.out.println("PanelContainer : Focus Lost");
         m_jPanelCentral.setPreferredSize(new java.awt.Dimension(450, 240));
         m_jPanelCentral.setLayout(new java.awt.BorderLayout());
 
+        jPanel4.setMinimumSize(new java.awt.Dimension(253, 100));
+        jPanel4.setPreferredSize(new java.awt.Dimension(680, 150));
         jPanel4.setLayout(new java.awt.BorderLayout());
         jPanel4.add(filler2, java.awt.BorderLayout.LINE_START);
 
@@ -2620,7 +2625,9 @@ System.out.println("PanelContainer : Focus Lost");
         m_jTicketId.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         jPanel4.add(m_jTicketId, java.awt.BorderLayout.CENTER);
 
-        m_jPanTotals.setPreferredSize(new java.awt.Dimension(375, 60));
+        m_jPanTotals.setMinimumSize(new java.awt.Dimension(500, 70));
+        m_jPanTotals.setName(""); // NOI18N
+        m_jPanTotals.setPreferredSize(new java.awt.Dimension(500, 60));
         m_jPanTotals.setLayout(new java.awt.GridLayout(2, 3, 4, 0));
 
         m_jLblTotalEuros3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -2642,7 +2649,7 @@ System.out.println("PanelContainer : Focus Lost");
         m_jPanTotals.add(m_jLblTotalEuros1);
 
         m_jSubtotalEuros.setBackground(m_jEditLine.getBackground());
-        m_jSubtotalEuros.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        m_jSubtotalEuros.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         m_jSubtotalEuros.setForeground(m_jEditLine.getForeground());
         m_jSubtotalEuros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         m_jSubtotalEuros.setLabelFor(m_jSubtotalEuros);
@@ -2655,20 +2662,21 @@ System.out.println("PanelContainer : Focus Lost");
         m_jPanTotals.add(m_jSubtotalEuros);
 
         m_jTaxesEuros.setBackground(m_jEditLine.getBackground());
-        m_jTaxesEuros.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        m_jTaxesEuros.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         m_jTaxesEuros.setForeground(m_jEditLine.getForeground());
         m_jTaxesEuros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         m_jTaxesEuros.setLabelFor(m_jTaxesEuros);
         m_jTaxesEuros.setToolTipText(bundle.getString("tooltip.saletax")); // NOI18N
         m_jTaxesEuros.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
-        m_jTaxesEuros.setMaximumSize(new java.awt.Dimension(125, 25));
-        m_jTaxesEuros.setMinimumSize(new java.awt.Dimension(80, 25));
-        m_jTaxesEuros.setPreferredSize(new java.awt.Dimension(80, 25));
+        m_jTaxesEuros.setMaximumSize(new java.awt.Dimension(75, 25));
+        m_jTaxesEuros.setMinimumSize(new java.awt.Dimension(50, 25));
+        m_jTaxesEuros.setName(""); // NOI18N
+        m_jTaxesEuros.setPreferredSize(new java.awt.Dimension(50, 25));
         m_jTaxesEuros.setRequestFocusEnabled(false);
         m_jPanTotals.add(m_jTaxesEuros);
 
         m_jTotalEuros.setBackground(m_jEditLine.getBackground());
-        m_jTotalEuros.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        m_jTotalEuros.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         m_jTotalEuros.setForeground(m_jEditLine.getForeground());
         m_jTotalEuros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         m_jTotalEuros.setLabelFor(m_jTotalEuros);
@@ -2771,7 +2779,7 @@ System.out.println("PanelContainer : Focus Lost");
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(m_jPor)
                     .addComponent(m_jKeyFactory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(m_jaddtax, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

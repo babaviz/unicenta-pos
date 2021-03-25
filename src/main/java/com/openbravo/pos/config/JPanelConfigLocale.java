@@ -61,9 +61,9 @@ public class JPanelConfigLocale extends javax.swing.JPanel implements PanelConfi
         Collections.sort(availablelocales, new LocaleComparator());
         
         jcboLocale.addItem(new LocaleInfo (null));
-        for (Locale l : availablelocales) {
+        availablelocales.forEach(l -> {
             jcboLocale.addItem(new LocaleInfo(l));
-        }
+        });
         
         jcboInteger.addItem(DEFAULT_VALUE);
         jcboInteger.addItem("#0");
@@ -73,12 +73,12 @@ public class JPanelConfigLocale extends javax.swing.JPanel implements PanelConfi
         jcboDouble.addItem("#0.0");
         jcboDouble.addItem("#,##0.#");
         
-        jcboCurrency.addItem(DEFAULT_VALUE);
-        jcboCurrency.addItem("'Ksh' #0.00");
-        jcboCurrency.addItem("'$' #,##0.00");
+        jcboCurrency.addItem("'Ksh'#,##0.##");
+        jcboCurrency.addItem("'$'#,##0.##");
+        //jcboCurrency.addItem(DEFAULT_VALUE);
         
         jcboPercent.addItem(DEFAULT_VALUE);
-        jcboPercent.addItem("#,##0.##%");
+        jcboPercent.addItem("#,##0.#%");
         
         jcboDate.addItem(DEFAULT_VALUE);
         
