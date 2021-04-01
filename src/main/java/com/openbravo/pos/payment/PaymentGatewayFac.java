@@ -20,10 +20,10 @@ public class PaymentGatewayFac {
         switch (sReader) {
             case "external":
                 return new PaymentGatewayExt();
-            case "Dejavoo":
-                return new PaymentGatewayDejavoo();
-            case "PaymentSense":
-                return new PaymentGatewayPaymentSense();
+//            case "Dejavoo":
+//                return new PaymentGatewayDejavoo();
+//            case "PaymentSense":
+//                return new PaymentGatewayPaymentSense();
             case "Vantiv":
 //                return new PaymentGatewayVantiv();                
             default:
