@@ -510,7 +510,7 @@
                     <Component class="javax.swing.JButton" name="jCheckStock">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Arial" size="10" style="1"/>
+                          <Font name="Arial" size="20" style="1"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ed" green="c5" red="4c" type="rgb"/>

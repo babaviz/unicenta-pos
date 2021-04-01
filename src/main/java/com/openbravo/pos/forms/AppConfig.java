@@ -1,21 +1,3 @@
-//    uniCenta oPOS  - Touch Friendly Point Of Sale
-//    Copyright (c) 2009-2018 uniCenta & previous Openbravo POS works
-//    https://unicenta.com
-//
-//    This file is part of uniCenta oPOS
-//
-//    uniCenta oPOS is free software: you can redistribute it and/or modify
-//    it under the terms of the GNU General Public License as published by
-//    the Free Software Foundation, either version 3 of the License, or
-//    (at your option) any later version.
-//
-//   uniCenta oPOS is distributed in the hope that it will be useful,
-//    but WITHOUT ANY WARRANTY; without even the implied warranty of
-//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//    GNU General Public License for more details.
-//
-//    You should have received a copy of the GNU General Public License
-//    along with uniCenta oPOS.  If not, see <http://www.gnu.org/licenses/>
 
 package com.openbravo.pos.forms;
 
@@ -342,13 +324,13 @@ public class AppConfig implements AppProperties {
         m_propsconfig.setProperty("paper.standard.mediasizename", "A4");
 
         m_propsconfig.setProperty("tkt.header1", "Softeria POS");
-        m_propsconfig.setProperty("tkt.header2", "Touch Friendly Point Of Sale");
-        m_propsconfig.setProperty("tkt.header3", "Copyright (c) 2009-2018 uniCenta");
-        m_propsconfig.setProperty("tkt.header4", "Change header text in Configuration");                
+        m_propsconfig.setProperty("tkt.header2", "Retail Solution");
+        m_propsconfig.setProperty("tkt.header3", "Company Name");
+        m_propsconfig.setProperty("tkt.header4", "");
         
-        m_propsconfig.setProperty("tkt.footer1", "Change footer text in Configuration");        
-        m_propsconfig.setProperty("tkt.footer2", "Thank you for your custom");
-        m_propsconfig.setProperty("tkt.footer3", "Please Call Again");
+        m_propsconfig.setProperty("tkt.footer1", "");
+        m_propsconfig.setProperty("tkt.footer2", "Thank you for shopping with us");
+        m_propsconfig.setProperty("tkt.footer3", "Welcome again");
         
         m_propsconfig.setProperty("table.showcustomerdetails", "true");
         m_propsconfig.setProperty("table.customercolour", "#58B000");        

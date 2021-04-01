@@ -1,21 +1,3 @@
-//    uniCenta oPOS  - Touch Friendly Point Of Sale
-//    Copyright (c) 2009-2018 uniCenta & previous Openbravo POS works
-//    https://unicenta.com
-//
-//    This file is part of uniCenta oPOS
-//
-//    uniCenta oPOS is free software: you can redistribute it and/or modify
-//    it under the terms of the GNU General Public License as published by
-//    the Free Software Foundation, either version 3 of the License, or
-//    (at your option) any later version.
-//
-//   uniCenta oPOS is distributed in the hope that it will be useful,
-//    but WITHOUT ANY WARRANTY; without even the implied warranty of
-//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//    GNU General Public License for more details.
-//
-//    You should have received a copy of the GNU General Public License
-//    along with uniCenta oPOS.  If not, see <http://www.gnu.org/licenses/>.
 package com.openbravo.pos.printer;
 
 import com.openbravo.pos.forms.AppProperties;
@@ -28,6 +10,7 @@ import com.openbravo.pos.printer.screen.DeviceDisplayPanel;
 import com.openbravo.pos.printer.screen.DeviceDisplayWindow;
 import com.openbravo.pos.printer.screen.DevicePrinterPanel;
 import com.openbravo.pos.util.StringParser;
+
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,7 +20,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
  * @author JG uniCenta
  */
 public class DeviceTicket {
@@ -50,10 +32,9 @@ public class DeviceTicket {
     private Map<String, DevicePrinter> m_deviceprinters;
     private List<DevicePrinter> m_deviceprinterslist;
 
-/** 
- * 
- * Creates a new instance of DeviceTicket 
- */
+    /**
+     * Creates a new instance of DeviceTicket
+     */
     public DeviceTicket() {
         // Una impresora solo de pantalla.
 
@@ -71,7 +52,6 @@ public class DeviceTicket {
     }
 
     /**
-     *
      * @param parent
      * @param props
      */
@@ -98,8 +78,8 @@ public class DeviceTicket {
         String sDisplayParam1 = sd.nextToken(',');
         String sDisplayParam2 = sd.nextToken(',');
 
-        if ("serial".equals(sDisplayType) 
-                || "rxtx".equals(sDisplayType) 
+        if ("serial".equals(sDisplayType)
+                || "rxtx".equals(sDisplayType)
                 || "file".equals(sDisplayType)) {
             sDisplayParam2 = sDisplayParam1;
             sDisplayParam1 = sDisplayType;
@@ -107,7 +87,7 @@ public class DeviceTicket {
         }
 
         try {
-         
+
             switch (sDisplayType) {
                 case "screen":
                     m_devicedisplay = new DeviceDisplayPanel();
@@ -159,8 +139,8 @@ public class DeviceTicket {
             String sPrinterParam2 = sp.nextToken(',');
 
 
-            if ("serial".equals(sPrinterType) 
-                    || "rxtx".equals(sPrinterType) 
+            if ("serial".equals(sPrinterType)
+                    || "rxtx".equals(sPrinterType)
                     || "file".equals(sPrinterType)) {
                 sPrinterParam2 = sPrinterParam1;
                 sPrinterParam1 = sPrinterType;
@@ -168,14 +148,14 @@ public class DeviceTicket {
             }
 
             try {
-        
+
                 switch (sPrinterType) {
                     case "screen":
                         addPrinter(sPrinterIndex, new DevicePrinterPanel());
                         break;
                     case "printer":
                         // backward compatibility
-                        if (sPrinterParam2 == null || sPrinterParam2.equals("") 
+                        if (sPrinterParam2 == null || sPrinterParam2.equals("")
                                 || sPrinterParam2.equals("true")) {
                             sPrinterParam2 = "receipt";
                         } else if (sPrinterParam2.equals("false")) {
@@ -187,7 +167,7 @@ public class DeviceTicket {
                                 Integer.parseInt(props.getProperty("paper." + sPrinterParam2 + ".width")),
                                 Integer.parseInt(props.getProperty("paper." + sPrinterParam2 + ".height")),
                                 props.getProperty("paper." + sPrinterParam2 + ".mediasizename")
-                                ));
+                        ));
                         break;
                     case "epson":
                         addPrinter(sPrinterIndex, new DevicePrinterESCPOS(
@@ -247,7 +227,7 @@ public class DeviceTicket {
             String skey = con + "-->" + port;
             PrinterWritter pw = (PrinterWritter) m_apool.get(skey);
             if (pw == null) {
-            
+
                 switch (con) {
                     case "serial":
                     case "rxtx":
@@ -265,49 +245,44 @@ public class DeviceTicket {
             return pw;
         }
     }
-    
+
 
     /**
-     *
      * @return Fiscal printer
      */
-        public DeviceFiscalPrinter getFiscalPrinter() {
+    public DeviceFiscalPrinter getFiscalPrinter() {
         return m_deviceFiscal;
     }
-    
+
     /**
-     *
      * @return Device display
      */
-        public DeviceDisplay getDeviceDisplay() {
+    public DeviceDisplay getDeviceDisplay() {
         return m_devicedisplay;
     }
-    
+
     /**
-     *
      * @param key
      * @return Device printer
      */
-        public DevicePrinter getDevicePrinter(String key) {
+    public DevicePrinter getDevicePrinter(String key) {
         DevicePrinter printer = m_deviceprinters.get(key);
         return printer == null ? m_nullprinter : printer;
     }
 
     /**
-     *
      * @return Device printer list
      */
     public List<DevicePrinter> getDevicePrinterAll() {
         return m_deviceprinterslist;
     }
-    
+
     /**
-     *
      * @param iSize
      * @param cWhiteChar
      * @return Spacing string length
      */
-        public static String getWhiteString(int iSize, char cWhiteChar) {
+    public static String getWhiteString(int iSize, char cWhiteChar) {
 
         char[] cFill = new char[iSize];
         for (int i = 0; i < iSize; i++) {
@@ -317,7 +292,6 @@ public class DeviceTicket {
     }
 
     /**
-     *
      * @param iSize
      * @return Space sizing
      */
@@ -327,7 +301,6 @@ public class DeviceTicket {
     }
 
     /**
-     *
      * @param sLine
      * @param iSize
      * @return Barcode bar inter-spacing
@@ -342,7 +315,6 @@ public class DeviceTicket {
     }
 
     /**
-     *
      * @param sLine
      * @param iSize
      * @return Reduce spacing
@@ -357,7 +329,6 @@ public class DeviceTicket {
     }
 
     /**
-     *
      * @param sLine
      * @param iSize
      * @return Add spacing
@@ -372,7 +343,6 @@ public class DeviceTicket {
     }
 
     /**
-     *
      * @param sLine
      * @param iSize
      * @return Adjusts Left/Right spacing
@@ -387,9 +357,8 @@ public class DeviceTicket {
     }
 
     /**
-     *
      * @param sLine
-     * @return Equalise Left/Right spacing 
+     * @return Equalise Left/Right spacing
      */
     public static String alignCenter(String sLine) {
         return alignCenter(sLine, 42);
@@ -398,17 +367,16 @@ public class DeviceTicket {
 // JG 16 May 12     public static final byte[] transNumber(String sCad) {
 
     /**
-     *
      * @param sCad
      * @return Convert number to string
      */
-        public static byte[] transNumber(String sCad) {
+    public static byte[] transNumber(String sCad) {
 
         if (sCad == null) {
             return null;
         } else {
             byte bAux[] = new byte[sCad.length()];
-            for( int i = 0; i < sCad.length(); i++) {
+            for (int i = 0; i < sCad.length(); i++) {
                 bAux[i] = transNumberChar(sCad.charAt(i));
             }
             return bAux;
@@ -416,23 +384,33 @@ public class DeviceTicket {
     }
 
     /**
-     *
      * @param sChar
      * @return Convert hex to character
      */
     public static byte transNumberChar(char sChar) {
         switch (sChar) {
-        case '0' : return 0x30;
-        case '1' : return 0x31;
-        case '2' : return 0x32;
-        case '3' : return 0x33;
-        case '4' : return 0x34;
-        case '5' : return 0x35;
-        case '6' : return 0x36;
-        case '7' : return 0x37;
-        case '8' : return 0x38;
-        case '9' : return 0x39;
-        default: return 0x30;
+            case '0':
+                return 0x30;
+            case '1':
+                return 0x31;
+            case '2':
+                return 0x32;
+            case '3':
+                return 0x33;
+            case '4':
+                return 0x34;
+            case '5':
+                return 0x35;
+            case '6':
+                return 0x36;
+            case '7':
+                return 0x37;
+            case '8':
+                return 0x38;
+            case '9':
+                return 0x39;
+            default:
+                return 0x30;
         }
     }
 }
